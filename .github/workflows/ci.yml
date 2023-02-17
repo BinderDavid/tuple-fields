@@ -1,0 +1,21 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  runhaskell:
+    name: Hello World
+    runs-on: ubuntu-latest # or macOS-latest, or windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: haskell/actions/setup@v2
+        with:
+          ghc-version: '9.2' # Resolves to the latest point release of GHC 8.8
+          cabal-version: '3.8' # Exact version of Cabal
+      - run: cabal build
