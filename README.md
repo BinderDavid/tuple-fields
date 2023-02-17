@@ -1,4 +1,5 @@
 # tuple-fields
+[![CI](https://github.com/BinderDavid/tuple-fields/actions/workflows/ci.yml/badge.svg)](https://github.com/BinderDavid/tuple-fields/actions/workflows/ci.yml)
 
 Accessing tuple fields in Haskell using record dot syntax.
 
