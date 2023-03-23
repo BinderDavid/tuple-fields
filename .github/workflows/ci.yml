@@ -10,7 +10,7 @@ on:
 
 jobs:
   runhaskell:
-    name: Hello World
+    name: Run testsuite
     runs-on: ubuntu-latest # or macOS-latest, or windows-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,3 +19,4 @@ jobs:
           ghc-version: '9.2' # Resolves to the latest point release of GHC 8.8
           cabal-version: '3.8' # Exact version of Cabal
       - run: cabal build
+      - run: cabal test
