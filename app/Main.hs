@@ -15,6 +15,12 @@ header =
     unlines [ "{-# LANGUAGE DataKinds #-}"
             , "{-# OPTIONS_GHC -Wno-orphans #-}"
             , "{-# LANGUAGE InstanceSigs #-}"
+            , "{-|"
+            , "Module             : Data.Tuple.Fields"
+            , "Description        : HasField instances for Tuples"
+            , "This module provides HasField instances for all tuples up to 62-tuples."
+            , "Also provides a HasField instance for Data.Tuple.Solo"
+            , "-}"
             , "module Data.Tuple.Fields () where"
             , ""
             , "import Data.Tuple"
@@ -23,7 +29,9 @@ header =
 
 solo_instance :: String
 solo_instance =
-    unlines [ "instance HasField \"_1\" (Solo a) a where"
+    unlines [ "-- |"
+            , "-- @since 0.1.0.0"
+            , "instance HasField \"_1\" (Solo a) a where"
             , "  getField (Solo x) = x"
             ]
 
@@ -48,7 +56,9 @@ tuple_pattern n m = "(" <> concat (intersperse "," [if x == m then "x" else "_" 
  
 tuple_instance_field :: Int -> Int -> String
 tuple_instance_field n m =
-    unlines [ "instance HasField " <> field_name m <> " " <> tuple_name n <> " " <> var_name m <> " where"
+    unlines [ "-- |"
+            , "-- @since 0.1.0.0"
+            , "instance HasField " <> field_name m <> " " <> tuple_name n <> " " <> var_name m <> " where"
             , "  getField " <> tuple_pattern n m <> " = x"
             ] 
 
