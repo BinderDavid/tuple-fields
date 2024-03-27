@@ -25,6 +25,10 @@ category:           Development
 build-type:         Simple
 extra-doc-files:    CHANGELOG.md
 
+source-repository head
+  type:                git
+  location:            https://github.com/BinderDavid/tuple-fields.git
+
 common warnings
     ghc-options: -Wall
 
